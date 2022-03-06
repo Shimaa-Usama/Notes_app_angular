@@ -1,0 +1,34 @@
+<section id="signUp">
+<form class="w-50 m-auto signUpForm" [formGroup]='signUpForm' (ngSubmit)='signUpForm.valid && signUpData()'>
+    <div class="row">
+        <div class="col-md-6 mb-2">
+            <input [class.is-valid] ='signUpForm.controls.first_name.status == "VALID"' formControlName='first_name' type="text" class="form-control" placeholder="Enter Your First Name">
+            <div *ngIf='signUpForm.controls.first_name.errors && signUpForm.controls.first_name.touched' class="alert alert-danger">First Name Not Valid</div>
+        </div>
+        <div class="col-md-6 mb-2">
+            <input [class.is-valid] ='signUpForm.controls.last_name.status == "VALID"' formControlName='last_name' type="text" class="form-control" placeholder="Enter Your Last Name">
+            <div  *ngIf='signUpForm.controls.last_name.errors && signUpForm.controls.last_name.touched' class="alert alert-danger">Last Name Not Valid</div>
+        </div>
+    </div>
+    <div class="mb-2">
+    <input [class.is-valid] ='signUpForm.controls.email.status == "VALID"' formControlName='email' type="email" class="form-control" placeholder="Enter Your Email">
+    <div *ngIf='signUpForm.controls.email.errors && signUpForm.controls.email.touched'  class="alert alert-danger">Email Not Valid</div>
+    </div> 
+
+    <div class="mb-2">
+    <input [class.is-valid] ='signUpForm.controls.age.status == "VALID"' formControlName='age' type="number" class="form-control" placeholder="Enter Your Age">
+    <div *ngIf='signUpForm.controls.age.errors && signUpForm.controls.age.touched' class="alert alert-danger">Age is required</div>
+    </div>
+
+    <div class="mb-2">
+    <input [class.is-valid] ='signUpForm.controls.password.status == "VALID"' formControlName='password' type="password" class="form-control" placeholder="Enter Your Password">
+    <div *ngIf='signUpForm.controls.password.errors && signUpForm.controls.password.touched' class="alert alert-danger">Password incorrect</div>
+    </div>
+
+    <button [disabled] ='signUpForm.invalid' class="w-100 btn btn-info" type="submit"><span *ngIf='isClicked'>Waiting....</span><span *ngIf='!isClicked' >Sign Up</span></button>
+    <div *ngIf ='isMessageSuccess' class="alert alert-success text-center">
+        {{responseMessage}}
+    </div>
+    <div *ngIf ='failResponse && !isMessageSuccess' class="alert alert-danger text-center">{{failResponse}}</div>
+</form>
+</section>

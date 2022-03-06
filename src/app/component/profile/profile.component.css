@@ -1,0 +1,15 @@
+#bgProfile
+{
+    min-height: 100vh;
+    background-color: rgb(192, 189, 189);
+}
+#stickyNote
+{
+    min-height: 220px;
+    width: 250px;
+    background-color: #fcc;
+}
+.dropdown
+{
+    cursor: pointer;
+}

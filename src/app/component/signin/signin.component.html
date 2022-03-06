@@ -1,0 +1,12 @@
+<section id="signIn">
+    <form class="w-50 m-auto signInForm" [formGroup]='signInForm' (ngSubmit)='signInForm.valid && signInData()'>
+
+        <input [class.is-valid] ='signInForm.controls.email.status == "VALID"' formControlName='email' type="email" class="form-control my-3" placeholder="Enter Your Email">
+        <div *ngIf='signInForm.controls.email.errors && signInForm.controls.email.touched' class="alert alert-danger">Email Not Valid</div>
+
+        <input [class.is-valid] ='signInForm.controls.password.status == "VALID"' formControlName='password' type="password" class="form-control my-3" placeholder="Enter Your Password">
+        <div *ngIf='signInForm.controls.password.errors && signInForm.controls.password.touched' class="alert alert-danger">Password Not Valid</div>
+
+        <button class="w-100 btn btn-info" type="submit">Sign In</button>
+    </form>
+</section>
